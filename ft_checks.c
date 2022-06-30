@@ -6,26 +6,26 @@
 /*   By: iyapar <iyapar@42kocaeli.com.tr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 15:07:16 by iyapar            #+#    #+#             */
-/*   Updated: 2022/06/29 15:07:17 by iyapar           ###   ########.fr       */
+/*   Updated: 2022/06/30 17:03:37 by iyapar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+#include <stdio.h>
+#include <limits.h>
 
 int	*ft_to_arr(char **s, int counter)
 {
 	int	*my_arr;
 	int	i;
-	int	j;
 	int	k;
 
 	i = 1;
 	k = 0;
-	j = 0;
 	my_arr = (int *)malloc(sizeof(int) * counter);
 	while (s[i])
 	{
-		my_arr[k] = ft_atoi(&s[i][j]);
+		my_arr[k] = ft_atoi(s[i]);
 		k++;
 		i++;
 	}
@@ -60,11 +60,10 @@ int	ft_dup_check(char **s, int counter)
 
 void	ft_max_min_check(char *a)
 {
-	if (!(ft_atoi(a) < 2147483647 && ft_atoi(a) > -2147483648))
-	{
-		write(1, "Error\n", 6);
-		exit (0);
-	}
+	if ((ps_atoll(a) <= INT_MAX && ps_atoll(a) >= INT_MIN))
+		return ;
+	write(1, "Error\n", 6);
+	exit (0);
 }
 
 int	ft_arg_check(char **s)
@@ -75,11 +74,11 @@ int	ft_arg_check(char **s)
 	i = 1;
 	while (s[i])
 	{
+		ft_max_min_check(s[i]);
 		j = 0;
 		while (s[i][j] != '\0')
 		{
-			ft_max_min_check(&s[i][j]);
-			if (s[i][j] == '-')
+			if (s[i][j] == '-' || s[i][j] == '+')
 				j++;
 			if (!ft_isdigit(s[i][j]))
 			{

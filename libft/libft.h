@@ -6,7 +6,7 @@
 /*   By: iyapar <iyapar@42kocaeli.com.tr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 15:05:14 by iyapar            #+#    #+#             */
-/*   Updated: 2022/06/29 15:05:15 by iyapar           ###   ########.fr       */
+/*   Updated: 2022/06/30 16:50:15 by iyapar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ typedef struct s_struct
 bool		ft_isdigit(int c);
 
 //to
-int			ft_atoi(const char *ch);
+long		ps_atoll(char *str);
+int			ft_atoi(const char *str);
 
 //bonus
 t_struct	*ft_lstnew(int value);

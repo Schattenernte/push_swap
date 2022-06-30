@@ -6,7 +6,7 @@
 /*   By: iyapar <iyapar@42kocaeli.com.tr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 15:09:04 by iyapar            #+#    #+#             */
-/*   Updated: 2022/06/29 15:11:02 by iyapar           ###   ########.fr       */
+/*   Updated: 2022/06/30 19:05:53 by iyapar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_small_sort(t_struct **stackA, t_struct **stackB, int ac)
 {
-	(void)stackB;
 	if (ac == 2)
 	{
 		if ((*stackA)->value > (*stackA)->next->value)
